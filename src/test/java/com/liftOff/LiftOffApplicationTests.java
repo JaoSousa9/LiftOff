@@ -1,4 +1,4 @@
-package com.liftOff.LiftOff;
+package com.liftOff;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
