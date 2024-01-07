@@ -1,9 +1,9 @@
-package project.view;
+package com.liftOff.LiftOff.view;
 
 import org.academiadecodigo.bootcamp.scanners.string.PasswordInputScanner;
 import org.academiadecodigo.bootcamp.scanners.string.StringInputScanner;
-import project.controller.LoginController;
-import project.controller.StartController;
+import com.liftOff.LiftOff.controller.LoginController;
+import com.liftOff.LiftOff.controller.StartController;
 
 public class LoginView extends AbstractView {
 

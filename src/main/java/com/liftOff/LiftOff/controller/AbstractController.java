@@ -1,6 +1,6 @@
-package project.controller;
+package com.liftOff.LiftOff.controller;
 
-import project.view.View;
+import com.liftOff.LiftOff.view.*;
 
 public abstract class AbstractController implements Controller {
 

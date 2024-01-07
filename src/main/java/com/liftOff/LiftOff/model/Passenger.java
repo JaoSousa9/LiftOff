@@ -1,8 +1,7 @@
-package project.model;
+package com.liftOff.LiftOff.model;
 
-import project.view.Messages;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Entity

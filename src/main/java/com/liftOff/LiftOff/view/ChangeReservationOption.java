@@ -1,4 +1,4 @@
-package project.view;
+package com.liftOff.LiftOff.view;
 
 public enum ChangeReservationOption {
 

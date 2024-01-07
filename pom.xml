@@ -42,6 +42,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.academiadecodigo.bootcamp</groupId>
+			<artifactId>prompt-view</artifactId>
+			<version>0.2.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

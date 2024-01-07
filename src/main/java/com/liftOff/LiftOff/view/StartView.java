@@ -1,7 +1,7 @@
-package project.view;
+package com.liftOff.LiftOff.view;
 
 import org.academiadecodigo.bootcamp.scanners.menu.MenuInputScanner;
-import project.controller.StartController;
+import com.liftOff.LiftOff.controller.StartController;
 
 public class StartView extends AbstractView {
 

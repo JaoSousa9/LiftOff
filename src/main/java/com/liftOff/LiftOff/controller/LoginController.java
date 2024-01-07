@@ -1,10 +1,9 @@
-package project.controller;
+package com.liftOff.LiftOff.controller;
 
-import project.model.Passenger;
-import project.view.Messages;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import com.liftOff.LiftOff.model.*;
+import com.liftOff.LiftOff.view.*;
 
 public class LoginController extends AbstractController {
 

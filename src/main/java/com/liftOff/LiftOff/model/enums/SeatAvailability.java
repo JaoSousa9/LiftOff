@@ -1,4 +1,4 @@
-package project.model.enums;
+package com.liftOff.LiftOff.model.enums;
 
 public enum SeatAvailability {
 

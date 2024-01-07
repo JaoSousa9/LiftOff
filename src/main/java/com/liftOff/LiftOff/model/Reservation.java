@@ -1,8 +1,10 @@
-package project.model;
+package com.liftOff.LiftOff.model;
 
-import project.model.enums.ReservationState;
+import com.liftOff.LiftOff.model.enums.ReservationState;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "reservation")

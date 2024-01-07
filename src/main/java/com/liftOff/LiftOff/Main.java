@@ -1,16 +1,12 @@
-package project;
+package com.liftOff.LiftOff;
 
 import org.academiadecodigo.bootcamp.Prompt;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import project.controller.*;
-import project.view.LoginView;
-import project.view.StartOptions;
-import project.view.StartView;
+import com.liftOff.LiftOff.controller.*;
+import com.liftOff.LiftOff.view.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 

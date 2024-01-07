@@ -1,4 +1,4 @@
-package project.model;
+package com.liftOff.LiftOff.model;
 
 public interface Model {
 

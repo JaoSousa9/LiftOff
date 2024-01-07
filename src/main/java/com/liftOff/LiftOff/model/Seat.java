@@ -1,9 +1,8 @@
-package project.model;
+package com.liftOff.LiftOff.model;
 
-import project.model.enums.SeatClass;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.liftOff.LiftOff.model.enums.SeatClass;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "seat")
