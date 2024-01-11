@@ -1,6 +1,6 @@
-package com.liftOff.LiftOff.model;
+package com.liftOff.LiftOff.persistence.model;
 
-import com.liftOff.LiftOff.model.enums.ReservationState;
+import com.liftOff.LiftOff.persistence.model.enums.ReservationState;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 

@@ -1,4 +1,4 @@
-package com.liftOff.LiftOff.model.enums;
+package com.liftOff.LiftOff.persistence.model.enums;
 
 public enum ReservationState {
 
