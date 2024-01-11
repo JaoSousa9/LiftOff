@@ -1,4 +1,4 @@
-package com.liftOff.LiftOff.model;
+package com.liftOff.LiftOff.persistence.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;

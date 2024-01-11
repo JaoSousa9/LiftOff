@@ -1,4 +1,4 @@
-package com.liftOff.LiftOff.model;
+package com.liftOff.LiftOff.persistence.model;
 
 
 import jakarta.persistence.*;
@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "passenger")
 public class Passenger extends AbstractModel {
 
-    private String firstNname;
+    private String firstName;
     private String lastName;
     private String email;
     private String password;
@@ -24,12 +24,12 @@ public class Passenger extends AbstractModel {
     private List<Reservation> reservations;
 
 
-    public String getFirstNname() {
-        return firstNname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstNname(String firstNname) {
-        this.firstNname = firstNname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {

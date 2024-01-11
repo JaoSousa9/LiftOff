@@ -1,4 +1,4 @@
-package com.liftOff.LiftOff.model;
+package com.liftOff.LiftOff.persistence.model;
 
 import jakarta.persistence.*;
 import java.util.List;
@@ -84,6 +84,12 @@ public class Flight extends AbstractModel {
         reservations.add(reservation);
         reservation.setFlight(this);
     }
+
+    // remove reservation
+
+    // add flight - empresas
+    // remove flight
+    //
 
 
 }
