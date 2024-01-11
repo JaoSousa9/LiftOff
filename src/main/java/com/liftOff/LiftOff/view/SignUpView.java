@@ -1,11 +1,11 @@
 package com.liftOff.LiftOff.view;
 
-import com.liftOff.LiftOff.controller.SignInController;
+import com.liftOff.LiftOff.controller.SignUpController;
 import org.academiadecodigo.bootcamp.scanners.string.StringInputScanner;
 
-public class SignInView extends AbstractView {
+public class SignUpView extends AbstractView {
 
-    private SignInController signInController;
+    private SignUpController signUpController;
     private String firstName;
     private String lastName;
     private String email;
@@ -13,8 +13,8 @@ public class SignInView extends AbstractView {
     private String username;
 
 
-    public void setSignInController(SignInController signInController) {
-        this.signInController = signInController;
+    public void setSignInController(SignUpController signUpController) {
+        this.signUpController = signUpController;
     }
 
 

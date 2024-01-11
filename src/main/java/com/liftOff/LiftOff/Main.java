@@ -42,7 +42,7 @@ public class Main {
 
         Map<Integer, Controller> startMap = new HashMap<>();
         startMap.put(StartOptions.LOGIN.getOption(), loginController);
-        startMap.put(StartOptions.SIGN_IN.getOption(), new SignInController());
+        startMap.put(StartOptions.SIGN_IN.getOption(), new SignUpController());
 
         startController.setStartMap(startMap);
 

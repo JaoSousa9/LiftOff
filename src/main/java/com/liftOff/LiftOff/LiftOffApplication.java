@@ -2,7 +2,7 @@ package com.liftOff.LiftOff;
 
 import com.liftOff.LiftOff.controller.*;
 import com.liftOff.LiftOff.view.LoginView;
-import com.liftOff.LiftOff.view.SignInView;
+import com.liftOff.LiftOff.view.SignUpView;
 import com.liftOff.LiftOff.view.StartOptions;
 import com.liftOff.LiftOff.view.StartView;
 import jakarta.persistence.EntityManager;
@@ -30,8 +30,8 @@ public class LiftOffApplication {
 		startView.setPrompt(prompt);
 		LoginView loginView = new LoginView();
 
-		SignInView signInView = new SignInView();
-		signInView.setPrompt(prompt);
+		SignUpView signUpView = new SignUpView();
+		signUpView.setPrompt(prompt);
 
 		StartController startController = new StartController();
 		startView.setStartController(startController);
@@ -42,8 +42,8 @@ public class LiftOffApplication {
 		loginController.setEm(em);
 		loginController.setStartController(startController);
 
-		SignInController signInController = new SignInController();
-		signInController.setView(signInView);
+		SignUpController signUpController = new SignUpController();
+		signUpController.setView(signUpView);
 
 		MainController mainController = new MainController();
 		loginController.setNextController(mainController);
@@ -52,7 +52,7 @@ public class LiftOffApplication {
 
 		Map<Integer, Controller> startMap = new HashMap<>();
 		startMap.put(StartOptions.LOGIN.getOption(), loginController);
-		startMap.put(StartOptions.SIGN_IN.getOption(), signInController);
+		startMap.put(StartOptions.SIGN_IN.getOption(), signUpController);
 
 		startController.setStartMap(startMap);
 

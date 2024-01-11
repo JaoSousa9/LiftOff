@@ -6,9 +6,9 @@ public class Messages {
     public static final String SYSTEM_ERROR = "ERROR: That is an invalid option";
     public static final String OPTION_MESSAGE = "Please select an option: ";
     public static final String LOGIN_MESSAGE = "Login";
-    public static final String LOGIN_ERROR_MESSAGE = "You don't have an account, please sign in first.";
+    public static final String LOGIN_ERROR_MESSAGE = "You don't have an account, please sign up first.";
     public static final String LOGIN_FAILED_MESSAGE = "Password incorrect.";
-    public static final String SIGN_IN_MESSAGE = "Sign in";
+    public static final String SIGN_IN_MESSAGE = "Sign up";
     public static final String PASSENGER_FIRST_NAME = "First Name: ";
     public static final String PASSENGER_LAST_NAME = "Last Name: ";
     public static final String PASSENGER_EMAIL = "Email: ";
