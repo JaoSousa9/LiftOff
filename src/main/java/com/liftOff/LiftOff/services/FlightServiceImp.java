@@ -31,10 +31,7 @@ public class FlightServiceImp implements FlightService {
 
     @Override
     public void delete(Integer id) throws FlightNotFoundException {
-        Flight flight = Optional.ofNullable(flightDao.findById(id))
-                .orElseThrow(FlightNotFoundException::new);
 
-        flightDao.delete(id);
     }
 
     @Override

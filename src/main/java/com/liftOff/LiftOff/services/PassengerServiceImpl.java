@@ -1,9 +1,13 @@
 package com.liftOff.LiftOff.services;
 
+import com.liftOff.LiftOff.exceptions.FlightNotFoundException;
+import com.liftOff.LiftOff.exceptions.PassengerNotFoundException;
 import com.liftOff.LiftOff.persistence.dao.PassengerDao;
+import com.liftOff.LiftOff.persistence.model.Flight;
 import com.liftOff.LiftOff.persistence.model.Passenger;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PassengerServiceImpl implements  PassengerService {
 
@@ -27,11 +31,14 @@ public class PassengerServiceImpl implements  PassengerService {
 
     @Override
     public Passenger saveOrUpdate(Passenger passenger) {
-        return null;
+        return passengerDao.saveOrUpdate(passenger);
     }
 
     @Override
-    public void deletePassenger(Integer id) {
+    public void deletePassenger(Integer id) throws PassengerNotFoundException {
+        Passenger passenger = Optional.ofNullable(passengerDao.findById(id))
+                .orElseThrow(PassengerNotFoundException::new);
 
+        passengerDao.delete(id);
     }
 }

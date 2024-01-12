@@ -5,6 +5,7 @@ import com.liftOff.LiftOff.persistence.dao.ReservationDao;
 import com.liftOff.LiftOff.persistence.model.Reservation;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ReservationServiceImpl implements ReservationService {
 
@@ -27,11 +28,15 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Reservation saveOrUpdate(Reservation reservation) {
-        return null;
+        return reservationDao.saveOrUpdate(reservation);
     }
 
     @Override
     public void deleteReservation(Integer id) throws ReservationNotFoundException {
+        Reservation reservation = Optional.ofNullable(reservationDao.findById(id))
+                .orElseThrow(ReservationNotFoundException::new);
+
+        reservationDao.delete(id);
 
     }
 }
