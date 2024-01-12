@@ -1,6 +1,6 @@
 package com.liftOff.LiftOff.controller;
 
-import com.liftOff.LiftOff.model.Passenger;
+import com.liftOff.LiftOff.persistence.model.Passenger;
 import com.liftOff.LiftOff.view.Messages;
 import com.liftOff.LiftOff.view.View;
 import jakarta.persistence.EntityManager;

@@ -1,7 +1,7 @@
-package com.liftOff.LiftOff.model;
+package com.liftOff.LiftOff.persistence.model;
 
 
-import com.liftOff.LiftOff.model.enums.SeatClass;
+import com.liftOff.LiftOff.persistence.model.enums.SeatClass;
 import jakarta.persistence.*;
 
 @Entity

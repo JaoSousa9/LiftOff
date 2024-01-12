@@ -1,6 +1,6 @@
-package com.liftOff.LiftOff.model;
+package com.liftOff.LiftOff.persistence.model;
 
-import com.liftOff.LiftOff.model.enums.SeatAvailability;
+import com.liftOff.LiftOff.persistence.model.enums.SeatAvailability;
 import jakarta.persistence.*;
 @Entity
 @Table(name = "assigned_seat")
@@ -10,6 +10,7 @@ public class AssignedSeat extends AbstractModel {
     private Integer seat_id;
     private SeatAvailability availability;
     private String seat_number;
+
 
     @OneToOne
     private Reservation reservation;
