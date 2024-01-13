@@ -2,8 +2,11 @@ package com.liftOff.LiftOff.controller;
 
 import com.liftOff.LiftOff.persistence.model.Passenger;
 import com.liftOff.LiftOff.view.Messages;
+import com.liftOff.LiftOff.view.View;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class LoginController extends AbstractController {
 
@@ -11,10 +14,15 @@ public class LoginController extends AbstractController {
     private boolean authFailed;
     private EntityManager em;
     private Passenger passenger;
+    private Controller startController;
 
 
     public void setNextController(Controller nextController) {
         this.nextController = nextController;
+    }
+
+    public void setStartController(Controller startController) {
+        this.startController = startController;
     }
 
     @PersistenceContext
@@ -24,14 +32,15 @@ public class LoginController extends AbstractController {
 
     public void onLogin(String username, String password) {
 
-        if(getUsername(username) != null && isPassword(password)) {
+        passenger = getUsername(username);
+
+        if (passenger != null && isPassword(password)) {
+            authFailed = false;
             nextController.init();
-            return;
+        } else {
+            authFailed = true;
+            startController.init();
         }
-
-        authFailed = true;
-        init();
-
     }
 
     public boolean isAuthFailed() {
@@ -40,20 +49,20 @@ public class LoginController extends AbstractController {
 
 
     private boolean isPassword(String password) {
-       if (password.equals(passenger.getPassword())) {
-           return true;
-       }
-       return false;
+        return passenger != null && password.equals(passenger.getPassword());
     }
 
     private Passenger getUsername(String username) {
 
-        passenger = em.find(Passenger.class, username);
-        if (passenger == null) {
+        try {
+            return em.createQuery("SELECT p FROM Passenger p WHERE p.username = :username", Passenger.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
+        } catch (NoResultException e) {
             System.out.println(Messages.LOGIN_ERROR_MESSAGE);
-            init();
+            return null;
         }
-        return passenger;
     }
+
 
 }
