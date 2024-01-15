@@ -4,6 +4,7 @@ import com.liftOff.LiftOff.persistence.dao.jpa.JpaPassengerDao;
 import com.liftOff.LiftOff.persistence.model.Passenger;
 import com.liftOff.LiftOff.view.SignUpView;
 import com.liftOff.LiftOff.view.View;
+import org.springframework.transaction.annotation.Transactional;
 
 public class SignUpController extends AbstractController {
 
@@ -23,6 +24,7 @@ public class SignUpController extends AbstractController {
         this.signUpView = signUpView;
     }
 
+    @Transactional
     public void savePassenger() {
         jpaPassengerDao.saveOrUpdate(createPassenger());
     }

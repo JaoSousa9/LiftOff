@@ -25,6 +25,7 @@ public class SignUpView extends AbstractView {
         showEmailPrompt();
         showPasswordPrompt();
         showUsernamePrompt();
+        signUpController.savePassenger();
     }
 
     private void showFirstNamePrompt() {
