@@ -13,6 +13,7 @@ public class Flight extends AbstractModel {
     private Integer capacity;
     private String date;
     private String hour;
+    private String duration;
 
     @OneToMany(
             cascade = {CascadeType.ALL},
@@ -78,6 +79,14 @@ public class Flight extends AbstractModel {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
     public void addReservation(Reservation reservation) {

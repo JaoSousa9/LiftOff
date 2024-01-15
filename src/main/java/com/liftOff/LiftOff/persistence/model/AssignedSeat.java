@@ -2,6 +2,8 @@ package com.liftOff.LiftOff.persistence.model;
 
 import com.liftOff.LiftOff.persistence.model.enums.SeatAvailability;
 import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+
 @Entity
 @Table(name = "assigned_seat")
 public class AssignedSeat extends AbstractModel {

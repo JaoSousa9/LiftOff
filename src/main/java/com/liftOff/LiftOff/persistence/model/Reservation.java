@@ -6,12 +6,15 @@ import jakarta.persistence.Table;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "reservation")
+@IdClass(ReservationId.class)
 public class Reservation extends AbstractModel {
 
-    /*private Integer flight_id;
-    private Integer passenger_id;*/
+    @Id
     private Integer assigned_seat_id;
     private String date;
     private String hour;
@@ -23,24 +26,17 @@ public class Reservation extends AbstractModel {
     @ManyToOne
     private Flight flight;
 
-    @OneToOne(
+    @OneToMany(
             cascade = {CascadeType.ALL},
             orphanRemoval = true,
             mappedBy = "reservation"
     )
-    private AssignedSeat assignedSeat;
+    private List<AssignedSeat> assignedSeats = new ArrayList<>();
 
-    /*public Integer getFlight_id() {
-        return flight_id;
+
+    public void setAssignedSeats(List<AssignedSeat> assignedSeats) {
+        this.assignedSeats = assignedSeats;
     }
-
-    public void setFlight_id(Integer flight_id) {
-        this.flight_id = flight_id;
-    }
-
-    public Integer getPassenger_id() {
-        return passenger_id;
-    }*/
 
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
@@ -58,9 +54,6 @@ public class Reservation extends AbstractModel {
         this.state = state;
     }
 
-    /*public void setPassenger_id(Integer passenger_id) {
-        this.passenger_id = passenger_id;
-    }*/
 
     public Integer getAssigned_seat_id() {
         return assigned_seat_id;
@@ -94,13 +87,10 @@ public class Reservation extends AbstractModel {
         return flight;
     }
 
-    public AssignedSeat getAssignedSeat() {
-        return assignedSeat;
+    public List<AssignedSeat> getAssignedSeats() {
+        return assignedSeats;
     }
 
-    public void setAssignedSeat(AssignedSeat assignedSeat) {
-        this.assignedSeat = assignedSeat;
-    }
 
     @Override
     public String toString() {
