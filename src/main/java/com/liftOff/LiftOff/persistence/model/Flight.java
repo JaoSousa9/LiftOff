@@ -10,10 +10,13 @@ public class Flight extends AbstractModel {
     private String flightNumber;
     private String origin;
     private String destiny;
-    private Integer capacity;
+    private String departureHour;
+    private String arrivalHour;
     private String date;
-    private String hour;
     private String duration;
+    private Integer eCapacity;
+    private Integer bCapacity;
+    private Integer fCapacity;
 
     @OneToMany(
             cascade = {CascadeType.ALL},
@@ -49,14 +52,6 @@ public class Flight extends AbstractModel {
         this.destiny = destiny;
     }
 
-    public Integer getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
-    }
-
     public String getDate() {
         return date;
     }
@@ -65,12 +60,44 @@ public class Flight extends AbstractModel {
         this.date = date;
     }
 
-    public String getHour() {
-        return hour;
+    public String getDepartureHour() {
+        return departureHour;
     }
 
-    public void setHour(String hour) {
-        this.hour = hour;
+    public void setDepartureHour(String departureHour) {
+        this.departureHour = departureHour;
+    }
+
+    public String getArrivalHour() {
+        return arrivalHour;
+    }
+
+    public void setArrivalHour(String arrivalHour) {
+        this.arrivalHour = arrivalHour;
+    }
+
+    public Integer geteCapacity() {
+        return eCapacity;
+    }
+
+    public void seteCapacity(Integer eCapacity) {
+        this.eCapacity = eCapacity;
+    }
+
+    public Integer getbCapacity() {
+        return bCapacity;
+    }
+
+    public void setbCapacity(Integer bCapacity) {
+        this.bCapacity = bCapacity;
+    }
+
+    public Integer getfCapacity() {
+        return fCapacity;
+    }
+
+    public void setfCapacity(Integer fCapacity) {
+        this.fCapacity = fCapacity;
     }
 
     public List<Reservation> getReservations() {

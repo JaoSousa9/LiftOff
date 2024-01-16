@@ -11,18 +11,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "reservation")
-@IdClass(ReservationId.class)
 public class Reservation extends AbstractModel {
 
-    @Id
-    private Integer assigned_seat_id;
     private String date;
     private String hour;
     private ReservationState state;
-
     @ManyToOne
     private Passenger passenger;
-
     @ManyToOne
     private Flight flight;
 
@@ -54,14 +49,6 @@ public class Reservation extends AbstractModel {
         this.state = state;
     }
 
-
-    public Integer getAssigned_seat_id() {
-        return assigned_seat_id;
-    }
-
-    public void setAssigned_seat_id(Integer assigned_seat_id) {
-        this.assigned_seat_id = assigned_seat_id;
-    }
 
     public String getDate() {
         return date;
@@ -95,7 +82,6 @@ public class Reservation extends AbstractModel {
     @Override
     public String toString() {
         return "Reservation{" +
-                ", assigned_seat_id=" + assigned_seat_id +
                 ", date='" + date + '\'' +
                 ", hour='" + hour + '\'' +
                 ", passenger=" + passenger +

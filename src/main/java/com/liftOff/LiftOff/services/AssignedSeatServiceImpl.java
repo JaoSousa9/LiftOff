@@ -4,12 +4,9 @@ import com.liftOff.LiftOff.exceptions.AssignedSeatNotFoundException;
 import com.liftOff.LiftOff.persistence.dao.AssignedSeatDao;
 import com.liftOff.LiftOff.persistence.dao.FlightDao;
 import com.liftOff.LiftOff.persistence.dao.PassengerDao;
-import com.liftOff.LiftOff.persistence.dao.SeatDao;
 import com.liftOff.LiftOff.persistence.model.AssignedSeat;
 import com.liftOff.LiftOff.persistence.model.Flight;
 import com.liftOff.LiftOff.persistence.model.Passenger;
-import com.liftOff.LiftOff.persistence.model.Seat;
-import com.liftOff.LiftOff.persistence.model.enums.SeatAvailability;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +17,6 @@ public class AssignedSeatServiceImpl implements AssignedSeatService {
     AssignedSeatDao assignedSeatDao;
     FlightDao flightDao;
     PassengerDao passengerDao;
-
-    SeatDao seatDao;
 
     // falta o @Autowired
     public void setAssignedSeatDao(AssignedSeatDao assignedSeatDao) {
@@ -38,10 +33,6 @@ public class AssignedSeatServiceImpl implements AssignedSeatService {
         this.passengerDao = passengerDao;
     }
 
-    // @Autowired
-    public void setSeatDao(SeatDao seatDao) {
-        this.seatDao = seatDao;
-    }
 
     @Override
     public AssignedSeat get(Integer id) {
@@ -66,10 +57,6 @@ public class AssignedSeatServiceImpl implements AssignedSeatService {
         assignedSeatDao.delete(id);
     }
 
-    @Override
-    public AssignedSeat findByFlightAndSeat(Flight flight, Seat seat) {
-        return null;
-    }
 
     @Override
     public List<AssignedSeat> findByFlight(Flight flight) {
@@ -77,7 +64,7 @@ public class AssignedSeatServiceImpl implements AssignedSeatService {
         List<AssignedSeat> availableSeats = new ArrayList<>();
 
         for (AssignedSeat seat : assignedSeatList) {
-            if (seat.getFlight_id().equals(flight.getId())) {
+            if (seat.getReservation().getFlight().getId().equals(flight.getId())) {
                 availableSeats.add(seat);
             }
         }
@@ -96,21 +83,13 @@ public class AssignedSeatServiceImpl implements AssignedSeatService {
         return null;
     }
 
-    @Override
-    public void updateAvailability(Integer id, SeatAvailability seatAvailability) {
-        AssignedSeat assignedSeat = assignedSeatDao.findById(id);
-        if(assignedSeat != null){
-            assignedSeat.setAvailability(seatAvailability);
-            assignedSeatDao.saveOrUpdate(assignedSeat);
-        }
-    }
 
     @Override
     public Integer countAssignedSeatsByFlight(Flight flight) {
         List<AssignedSeat> allAssignedSeats = assignedSeatDao.findAll();
         Integer countSeats = 0;
         for (AssignedSeat assignedSeat : allAssignedSeats) {
-            if (assignedSeat.getFlight_id().equals(flight)) {
+            if (assignedSeat.getReservation().getFlight().equals(flight)) {
                 countSeats++;
             }
         }
