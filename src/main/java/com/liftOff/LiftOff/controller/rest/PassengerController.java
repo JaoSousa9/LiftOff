@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -64,7 +65,35 @@ public class PassengerController {
             value = "/sign-up",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity addPassenger(@Valid @RequestBody) {
+    public ResponseEntity addPassenger(@Valid @RequestBody PassengerDto passengerDto, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        Passenger passenger = passengerDtoToPassenger.convert(passengerDto);
+        passengerService.saveOrUpdate(passenger);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
+    }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            value = "/edit/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity editPassenger(@Valid @RequestBody PassengerDto passengerDto, BindingResult bindingResult, @PathVariable Integer id) {
+
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        passengerDto.setId(id);
+        Passenger passenger = passengerDtoToPassenger.convert(passengerDto);
+        passengerService.saveOrUpdate(passenger);
+
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
