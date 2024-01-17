@@ -13,7 +13,7 @@ public class SignUpView extends AbstractView {
     private String username;
 
 
-    public void setSignInController(SignUpController signUpController) {
+    public void setSignUnController(SignUpController signUpController) {
         this.signUpController = signUpController;
     }
 
@@ -25,6 +25,7 @@ public class SignUpView extends AbstractView {
         showEmailPrompt();
         showPasswordPrompt();
         showUsernamePrompt();
+        signUpController.savePassenger();
     }
 
     private void showFirstNamePrompt() {
@@ -62,4 +63,23 @@ public class SignUpView extends AbstractView {
         password = prompt.getUserInput(scanner);
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
 }
