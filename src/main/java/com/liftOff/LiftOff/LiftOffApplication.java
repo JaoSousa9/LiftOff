@@ -21,42 +21,6 @@ public class LiftOffApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LiftOffApplication.class, args);
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("liftOff");
-		EntityManager em = emf.createEntityManager();
-
-		Prompt prompt = new Prompt(System.in, System.out);
-
-		StartView startView = new StartView();
-		startView.setPrompt(prompt);
-		LoginView loginView = new LoginView();
-
-		SignUpView signUpView = new SignUpView();
-		signUpView.setPrompt(prompt);
-
-		StartController startController = new StartController();
-		startView.setStartController(startController);
-		startController.setView(startView);
-
-		LoginController loginController = new LoginController();
-		loginController.setView(loginView);
-		loginController.setEm(em);
-		loginController.setStartController(startController);
-
-		SignUpController signUpController = new SignUpController();
-		signUpController.setView(signUpView);
-
-		MainController mainController = new MainController();
-		loginController.setNextController(mainController);
-		loginView.setLoginController(loginController);
-		loginView.setPrompt(prompt);
-
-		Map<Integer, Controller> startMap = new HashMap<>();
-		startMap.put(StartOptions.LOGIN.getOption(), loginController);
-		startMap.put(StartOptions.SIGN_IN.getOption(), signUpController);
-
-		startController.setStartMap(startMap);
-
-		startController.init();
 	}
 
 

@@ -1,51 +1,77 @@
 package com.liftOff.LiftOff.persistence.model;
 
-import com.liftOff.LiftOff.persistence.model.enums.SeatAvailability;
+import com.liftOff.LiftOff.persistence.model.enums.ReservationState;
+import com.liftOff.LiftOff.persistence.model.enums.SeatClass;
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "assigned_seat")
 public class AssignedSeat extends AbstractModel {
 
-    private Integer flight_id;
-    private Integer seat_id;
-    private SeatAvailability availability;
-    private String seat_number;
-
-
-    @OneToOne
+    private SeatClass seatClass;
+    private String seatNumber;
+    private String price;
+    private ReservationState reservationState;
+    private String firstName;
+    private String lastName;
+    private Integer cc;
+    @ManyToOne
     private Reservation reservation;
 
-
-    public Integer getFlight_id() {
-        return flight_id;
+    public SeatClass getSeatClass() {
+        return seatClass;
     }
 
-    public void setFlight_id(Integer flight_id) {
-        this.flight_id = flight_id;
+    public void setSeatClass(SeatClass seatClass) {
+        this.seatClass = seatClass;
     }
 
-    public Integer getSeat_id() {
-        return seat_id;
+    public String getSeatNumber() {
+        return seatNumber;
     }
 
-    public void setSeat_id(Integer seat_id) {
-        this.seat_id = seat_id;
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
     }
 
-    public SeatAvailability getAvailability() {
-        return availability;
+    public String getPrice() {
+        return price;
     }
 
-    public void setAvailability(SeatAvailability availability) {
-        this.availability = availability;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public String getSeat_number() {
-        return seat_number;
+    public ReservationState getReservationState() {
+        return reservationState;
     }
 
-    public void setSeat_number(String seat_number) {
-        this.seat_number = seat_number;
+    public void setReservationState(ReservationState reservationState) {
+        this.reservationState = reservationState;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Integer getCc() {
+        return cc;
+    }
+
+    public void setCc(Integer cc) {
+        this.cc = cc;
     }
 
     public Reservation getReservation() {
