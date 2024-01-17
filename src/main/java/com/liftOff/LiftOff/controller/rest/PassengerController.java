@@ -3,6 +3,7 @@ package com.liftOff.LiftOff.controller.rest;
 import com.liftOff.LiftOff.command.PassengerDto;
 import com.liftOff.LiftOff.converters.PassengerDtoToPassenger;
 import com.liftOff.LiftOff.converters.PassengerToPassengerDto;
+import com.liftOff.LiftOff.exceptions.PassengerNotFoundException;
 import com.liftOff.LiftOff.persistence.model.Passenger;
 import com.liftOff.LiftOff.services.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,19 @@ public class PassengerController {
         passengerDto.setId(id);
         Passenger passenger = passengerDtoToPassenger.convert(passengerDto);
         passengerService.saveOrUpdate(passenger);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
+    }
+
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            value = "/delete/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity deletePassenger(@PathVariable Integer id) throws PassengerNotFoundException {
+
+        passengerService.deletePassenger(id);
 
         return new ResponseEntity<>(HttpStatus.OK);
 
