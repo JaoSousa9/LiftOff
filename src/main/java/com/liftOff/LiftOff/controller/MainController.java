@@ -1,6 +1,9 @@
 package com.liftOff.LiftOff.controller;
 
-public class MainController extends AbstractController {
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MainController {
 
 
 }
