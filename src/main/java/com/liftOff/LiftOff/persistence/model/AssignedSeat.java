@@ -12,6 +12,7 @@ public class AssignedSeat extends AbstractModel {
     private String seat_number;
 
 
+
     @OneToOne
     private Reservation reservation;
 
