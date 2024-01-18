@@ -7,27 +7,32 @@ import com.liftOff.LiftOff.persistence.dao.PassengerDao;
 import com.liftOff.LiftOff.persistence.model.AssignedSeat;
 import com.liftOff.LiftOff.persistence.model.Flight;
 import com.liftOff.LiftOff.persistence.model.Passenger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
 public class AssignedSeatServiceImpl implements AssignedSeatService {
 
     AssignedSeatDao assignedSeatDao;
     FlightDao flightDao;
     PassengerDao passengerDao;
 
-    // falta o @Autowired
+   @Autowired
     public void setAssignedSeatDao(AssignedSeatDao assignedSeatDao) {
         this.assignedSeatDao = assignedSeatDao;
     }
 
-    // @Autowired
+    @Autowired
     public void setFlightDao(FlightDao flightDao) {
         this.flightDao = flightDao;
     }
 
-    // @Autowired
+    @Autowired
     public void setPassengerDao(PassengerDao passengerDao) {
         this.passengerDao = passengerDao;
     }

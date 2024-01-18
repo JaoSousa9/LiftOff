@@ -3,14 +3,18 @@ package com.liftOff.LiftOff.services;
 import com.liftOff.LiftOff.exceptions.ReservationNotFoundException;
 import com.liftOff.LiftOff.persistence.dao.ReservationDao;
 import com.liftOff.LiftOff.persistence.model.Reservation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+@Service
 public class ReservationServiceImpl implements ReservationService {
 
     ReservationDao reservationDao;
 
-    // @Autowired
+    @Autowired
     public void setReservationDao(ReservationDao reservationDao) {
         this.reservationDao = reservationDao;
     }
@@ -33,5 +37,10 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public void deleteReservation(Integer id) throws ReservationNotFoundException {
 
+    }
+
+    @Override
+    public List<Reservation> getPassengerReservations() {
+        return null;
     }
 }

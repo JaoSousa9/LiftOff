@@ -2,14 +2,18 @@ package com.liftOff.LiftOff.services;
 
 import com.liftOff.LiftOff.persistence.dao.PassengerDao;
 import com.liftOff.LiftOff.persistence.model.Passenger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+@Service
 public class PassengerServiceImpl implements  PassengerService {
 
     PassengerDao passengerDao;
 
-    // @Autowired
+     @Autowired
 
     public void setPassengerDao(PassengerDao passengerDao) {
         this.passengerDao = passengerDao;

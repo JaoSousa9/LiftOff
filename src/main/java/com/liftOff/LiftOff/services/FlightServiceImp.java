@@ -4,16 +4,21 @@ import com.liftOff.LiftOff.exceptions.FlightNotFoundException;
 import com.liftOff.LiftOff.persistence.dao.FlightDao;
 import com.liftOff.LiftOff.persistence.model.Flight;
 import com.liftOff.LiftOff.persistence.model.Reservation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class FlightServiceImp implements FlightService {
 
     FlightDao flightDao;
 
-    // falta setters de todas as propriedades que usar, com @Autowired
-
+    @Autowired
+    public void setFlightDao(FlightDao flightDao) {
+        this.flightDao = flightDao;
+    }
     @Override
     public Flight get(Integer id) {
         return flightDao.findById(id);
@@ -46,4 +51,6 @@ public class FlightServiceImp implements FlightService {
     public Integer getReservationsNumberForFlight(Flight flight) {
         return flight.getReservations().size();
     }
+
+
 }
