@@ -1,13 +1,16 @@
 package com.liftOff.LiftOff.controller;
 
 import com.liftOff.LiftOff.persistence.model.Passenger;
-
+import com.liftOff.LiftOff.view.Messages;
+import com.liftOff.LiftOff.view.View;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
-public class LoginController {
+@RestController
+public class LoginController extends AbstractController {
 
     private Controller nextController;
     private boolean authFailed;
@@ -58,7 +61,7 @@ public class LoginController {
                     .setParameter("username", username)
                     .getSingleResult();
         } catch (NoResultException e) {
-            //System.out.println(Messages.LOGIN_ERROR_MESSAGE);
+            System.out.println(Messages.LOGIN_ERROR_MESSAGE);
             return null;
         }
     }
