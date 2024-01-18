@@ -1,10 +1,10 @@
 package com.liftOff.LiftOff.controller;
 
-import com.liftOff.LiftOff.view.Messages;
+
 
 import java.util.Map;
 
-public class StartController extends AbstractController {
+public class StartController {
 
     private Controller nextController;
     private Map<Integer, Controller> startMap;
@@ -19,11 +19,11 @@ public class StartController extends AbstractController {
     public void startSelection(int option) {
 
         if (!startMap.containsKey(option)) {
-            throw new IllegalStateException(Messages.SYSTEM_ERROR);
+          //  throw new IllegalStateException(Messages.SYSTEM_ERROR);
         }
 
         startMap.get(option).init();
-        init();
+      //  init();
     }
 
     public void setStartMap(Map<Integer, Controller> startMap) {

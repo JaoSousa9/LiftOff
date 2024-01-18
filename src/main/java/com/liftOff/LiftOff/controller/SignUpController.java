@@ -1,6 +1,6 @@
 package com.liftOff.LiftOff.controller;
 
-public class SignUpController extends AbstractController {
+public class SignUpController {
 
 
 

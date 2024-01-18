@@ -7,7 +7,6 @@ import com.liftOff.LiftOff.persistence.dao.PassengerDao;
 import com.liftOff.LiftOff.persistence.model.AssignedSeat;
 import com.liftOff.LiftOff.persistence.model.Flight;
 import com.liftOff.LiftOff.persistence.model.Passenger;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

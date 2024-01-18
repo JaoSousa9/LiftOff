@@ -5,7 +5,7 @@
 
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/liftOff?useSSL=false"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/liftOff?useSSL=true"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.connection.username" value="liftOffAdmin"/>
             <property name="hibernate.connection.password" value="iorns"/>
