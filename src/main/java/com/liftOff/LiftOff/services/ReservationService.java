@@ -13,4 +13,6 @@ public interface ReservationService {
     Reservation saveOrUpdate (Reservation reservation);
 
     void deleteReservation(Integer id) throws ReservationNotFoundException;
+
+    List<Reservation> getPassengerReservations();
 }

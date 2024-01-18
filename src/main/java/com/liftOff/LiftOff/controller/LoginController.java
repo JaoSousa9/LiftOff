@@ -61,10 +61,14 @@ public class LoginController extends AbstractController {
                     .setParameter("username", username)
                     .getSingleResult();
         } catch (NoResultException e) {
-            System.out.println(Messages.LOGIN_ERROR_MESSAGE);
+           // System.out.println(Messages.LOGIN_ERROR_MESSAGE);
             return null;
         }
     }
 
 
+    @Override
+    public void init() {
+
+    }
 }

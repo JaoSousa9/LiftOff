@@ -27,6 +27,11 @@ public class ViewReservationController extends AbstractController {
 
     public Passenger getPassenger() {
         passenger = new Passenger();
+        return passenger;
+    }
 
+    @Override
+    public void init() {
+        
     }
 }
