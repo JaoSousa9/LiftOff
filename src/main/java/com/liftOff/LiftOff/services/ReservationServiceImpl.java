@@ -1,6 +1,5 @@
 package com.liftOff.LiftOff.services;
 
-import com.liftOff.LiftOff.exceptions.ReservationNotFoundException;
 import com.liftOff.LiftOff.persistence.dao.ReservationDao;
 import com.liftOff.LiftOff.persistence.model.Flight;
 import com.liftOff.LiftOff.persistence.model.Passenger;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 
 @Service
