@@ -42,15 +42,5 @@ public class FlightServiceImp implements FlightService {
         flightDao.delete(id);
     }
 
-    @Override
-    public List<Reservation> getReservationsForFlight(Flight flight) {
-        return flight.getReservations();
-    }
-
-    @Override
-    public Integer getReservationsNumberForFlight(Flight flight) {
-        return flight.getReservations().size();
-    }
-
 
 }

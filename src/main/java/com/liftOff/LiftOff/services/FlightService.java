@@ -16,9 +16,6 @@ public interface FlightService {
 
     void delete(Integer id) throws FlightNotFoundException;
 
-    List<Reservation> getReservationsForFlight(Flight flight);
-
-    Integer getReservationsNumberForFlight(Flight flight);
 
 
 }

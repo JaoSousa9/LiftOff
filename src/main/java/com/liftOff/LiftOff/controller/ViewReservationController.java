@@ -22,7 +22,7 @@ public class ViewReservationController extends AbstractController {
     }
 
     public List<Reservation> getPassengerReservations() {
-        return reservationService.getPassengerReservations();
+        return reservationService.getPassengerReservations(passenger);
     }
 
     public Passenger getPassenger() {

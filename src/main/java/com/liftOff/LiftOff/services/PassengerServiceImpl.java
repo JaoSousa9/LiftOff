@@ -1,12 +1,15 @@
 package com.liftOff.LiftOff.services;
 
+import com.liftOff.LiftOff.exceptions.AssignedSeatNotFoundException;
 import com.liftOff.LiftOff.exceptions.PassengerNotFoundException;
 import com.liftOff.LiftOff.persistence.dao.PassengerDao;
+import com.liftOff.LiftOff.persistence.model.AssignedSeat;
 import com.liftOff.LiftOff.persistence.model.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -32,12 +35,12 @@ public class PassengerServiceImpl implements  PassengerService {
 
     @Override
     public Passenger saveOrUpdate(Passenger passenger) {
-        return null;
+        return passengerDao.saveOrUpdate(passenger);
     }
 
     @Override
     public void deletePassenger(Integer id) {
-
+        passengerDao.delete(id);
     }
 
     @Override
