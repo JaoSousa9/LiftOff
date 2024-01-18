@@ -7,13 +7,19 @@ import org.springframework.core.convert.converter.Converter;
 public class PassengerToPassengerDto implements Converter<Passenger, PassengerDto> {
 
     @Override
-    public PassengerDto convert(Passenger source) {
-        return null;
+    public PassengerDto convert(Passenger passenger) {
+
+        PassengerDto passengerDto = new PassengerDto();
+        passengerDto.setId(passenger.getId());
+        passengerDto.setFirstName(passenger.getFirstName());
+        passengerDto.setLastName(passenger.getLastName());
+        passengerDto.setEmail(passenger.getEmail());
+        passengerDto.setUsername(passenger.getUsername());
+        passengerDto.setPassword(passenger.getPassword());
+        passengerDto.setPhoneNumber(passenger.getPhoneNumber());
+        
+        return passengerDto;
     }
 
-    @Override
-    public <U> Converter<Passenger, U> andThen(Converter<? super PassengerDto, ? extends U> after) {
-        return Converter.super.andThen(after);
-    }
 
 }
