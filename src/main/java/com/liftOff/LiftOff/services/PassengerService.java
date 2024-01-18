@@ -13,6 +13,6 @@ public interface PassengerService {
     Passenger saveOrUpdate (Passenger passenger);
 
     void deletePassenger(Integer id) throws PassengerNotFoundException;
-
-
+    
+    Passenger getPassengerByUsername(String username) throws PassengerNotFoundException;
 }

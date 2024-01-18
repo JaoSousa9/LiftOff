@@ -20,7 +20,7 @@ public class AssignedSeatServiceImpl implements AssignedSeatService {
 
     AssignedSeatDao assignedSeatDao;
     FlightDao flightDao;
-    PassengerDao passengerDao;
+    PassengerDao passengerDao;  
 
    @Autowired
     public void setAssignedSeatDao(AssignedSeatDao assignedSeatDao) {

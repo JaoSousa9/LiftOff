@@ -46,12 +46,12 @@ public class PassengerController {
             value = "/login",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<PassengerDto> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<PassengerDto> login(@RequestBody LoginRequest loginRequest) throws PassengerNotFoundException {
 
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
 
-        Passenger passenger = passengerService.getUsername(username);
+        Passenger passenger = passengerService.getPassengerByUsername(username);
 
         if (passenger != null && password.equals(passenger.getPassword())) {
             PassengerDto passengerDto = passengerToPassengerDto.convert(passenger);
