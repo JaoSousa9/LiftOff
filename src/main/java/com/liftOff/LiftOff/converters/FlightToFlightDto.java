@@ -3,7 +3,9 @@ package com.liftOff.LiftOff.converters;
 import com.liftOff.LiftOff.command.FlightDto;
 import com.liftOff.LiftOff.persistence.model.Flight;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FlightToFlightDto implements Converter<Flight, FlightDto> {
 
 

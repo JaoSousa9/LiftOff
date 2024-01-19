@@ -5,7 +5,9 @@ import com.liftOff.LiftOff.persistence.model.Flight;
 import com.liftOff.LiftOff.services.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FlightDtoToFlight implements Converter<FlightDto, Flight> {
 
     private FlightService flightService;

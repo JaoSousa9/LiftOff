@@ -4,8 +4,11 @@ import com.liftOff.LiftOff.command.PassengerDto;
 import com.liftOff.LiftOff.exceptions.PassengerNotFoundException;
 import com.liftOff.LiftOff.persistence.model.Passenger;
 import com.liftOff.LiftOff.services.PassengerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PassengerDtoToPassenger implements Converter<PassengerDto, Passenger> {
 
     private PassengerService passengerService;
