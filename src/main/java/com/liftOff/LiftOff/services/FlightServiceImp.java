@@ -35,11 +35,24 @@ public class FlightServiceImp implements FlightService {
     }
 
     @Override
-    public void delete(Integer id) throws FlightNotFoundException {
-        Flight flight = Optional.ofNullable(flightDao.findById(id))
-                .orElseThrow(FlightNotFoundException::new);
+    public void delete(Integer id) {
 
         flightDao.delete(id);
+    }
+
+    @Override
+    public List<Flight> getFlightDate(String origin, String destiny, String date) throws FlightNotFoundException {
+
+        return Optional.ofNullable(flightDao.searchFlightOriginDestinyDate(origin, destiny, date))
+                .orElseThrow(FlightNotFoundException::new);
+    }
+
+    @Override
+    public List<Flight> getFlightPrice(String origin, String destiny, Integer price) throws FlightNotFoundException {
+
+        return Optional.ofNullable(flightDao.searchFlightOriginDestinyPrice(origin, destiny, price))
+                .orElseThrow(FlightNotFoundException::new);
+
     }
 
 

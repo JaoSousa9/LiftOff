@@ -16,6 +16,10 @@ public interface FlightService {
 
     void delete(Integer id) throws FlightNotFoundException;
 
+    List<Flight> getFlightDate(String origin, String destiny, String date) throws FlightNotFoundException;
+
+    List<Flight> getFlightPrice(String origin, String destiny, Integer price) throws FlightNotFoundException;
+
 
 
 }
