@@ -14,8 +14,7 @@ public class Flight extends AbstractModel {
     private String arrivalHour;
     private String date;
     private String duration;
-
-    private String price;
+    private Integer price;
     private Integer eCapacity;
     private Integer bCapacity;
     private Integer fCapacity;
@@ -29,7 +28,7 @@ public class Flight extends AbstractModel {
     private List<Reservation> reservations;
 
 
-    public Flight(String flightNumber, String origin, String destiny, String departureHour, String arrivalHour, String date, String duration, String price, Integer eCapacity, Integer bCapacity, Integer fCapacity) {
+    public Flight(String flightNumber, String origin, String destiny, String departureHour, String arrivalHour, String date, String duration, Integer price, Integer eCapacity, Integer bCapacity, Integer fCapacity) {
         this.flightNumber = flightNumber;
         this.origin = origin;
         this.destiny = destiny;
@@ -43,11 +42,15 @@ public class Flight extends AbstractModel {
         this.fCapacity = fCapacity;
     }
 
-    public String getPrice() {
+    public Flight() {
+
+    }
+
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
     public String getFlightNumber() {

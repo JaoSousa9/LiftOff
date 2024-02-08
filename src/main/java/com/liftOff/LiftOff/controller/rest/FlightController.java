@@ -61,7 +61,7 @@ public class FlightController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            path = "/{origin}/{destiny}/{date}",
+            path = "/{origin}/{destiny}/date/{date}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<List<FlightDto>> getFlightDate(@PathVariable String destiny, @PathVariable String origin , @PathVariable String date) {
@@ -82,6 +82,7 @@ public class FlightController {
     )
     public ResponseEntity<List<FlightDto>> getFlightPrice(@PathVariable String destiny, @PathVariable String origin , @PathVariable Integer price) {
 
+        System.out.println(destiny + " " + origin + " " + price);
         try {
             List<Flight> flights = flightService.getFlightPrice(destiny,origin,price);
             List<FlightDto> flightDTOs = flights.stream().map(flight -> flightToFlightDto.convert(flight)).toList();

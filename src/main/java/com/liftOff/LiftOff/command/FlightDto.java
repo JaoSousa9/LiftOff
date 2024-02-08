@@ -10,7 +10,7 @@ public class FlightDto {
     private String arrivalHour;
     private String date;
     private String duration;
-    private String price;
+    private Integer price;
     private Integer eCapacity;
     private Integer bCapacity;
     private Integer fCapacity;
@@ -79,11 +79,11 @@ public class FlightDto {
         this.duration = duration;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
